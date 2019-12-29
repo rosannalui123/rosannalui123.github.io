@@ -1,1 +1,213 @@
-Index
+<html>
+
+<head>
+    <title>Rosanna Lui</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,500i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:300,400" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link href="style.css?v=43" rel="stylesheet">
+    <meta name="viewport" content="width=700">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    var menuval = 0;
+    
+    $(document).ready(function() {
+        
+        $(document).on("scroll", onScroll);
+
+        //smoothscroll
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            $(document).off("scroll");
+
+            $('a').each(function() {
+                $(this).removeClass('active');
+            })
+            $(this).addClass('active');
+
+            var target = this.hash,
+                menu = target;
+            $target = $(target);
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top + 2
+            }, 500, 'swing', function() {
+                window.location.hash = target;
+                $(document).on("scroll", onScroll);
+            });
+        });
+    });
+
+    function onScroll(event) {
+        var scrollPos = $(document).scrollTop();
+        $('#menu a').each(function() {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('#menu ul li a').removeClass("active");
+                currLink.addClass("active");
+            } else {
+                currLink.removeClass("active");
+            }
+        });
+    }
+    function toggleMenu() {
+        var work = document.getElementById("workmenu");
+        var about = document.getElementById("aboutmenu");
+        var resume = document.getElementById("resumemenu");
+        if (menuval == 0) {
+            menuval = 1;
+            work.classList.remove("hide");
+            about.classList.remove("hide");
+            resume.classList.remove("hide");
+        } else {
+            menuval = 0;
+            work.classList.add("hide");
+            about.classList.add("hide");
+            resume.classList.add("hide");
+        }
+    }
+</script>
+
+<body class="bodyhome">
+    
+    <!-- Menu -->
+    <div class="menu">
+        <div id="menu">
+            <ul>
+                <li id="rosanna"><a class="active" href="#hello">Rosanna Lui</a></li>
+                <li id="menubutton" class="mobile"><a href="#" onclick="toggleMenu()"><img class="menubutton" src="menu.svg" /></a></li>
+                <li id="workmenu" class="more hide"><a href="#work">Work</a></li>
+                <li id="aboutmenu" class="more hide"><a href="#aboutrosanna">About</a></li>
+                
+                <!-- 
+                <li id="resumemenu" class="more hide"><a target="_blank" href="http://www.rosannalui.com/Rosanna-Lui-resume.pdf">Resume</a></li>
+                -->
+            </ul>
+        </div>
+    </div> 
+
+    <!-- Hello -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <div id="hello" class="hello">
+        <div id="hellotext">
+            <h1>I am a <span class="colortext"> UX Designer</span> that leverages storytelling and research to redefine the digital experience for people!
+            
+            </h1>
+                <!-- <a href="#work"><img class="downarrow" src="downarrow.svg" /></a> -->
+        </div>
+    </div>
+
+    <!-- Dots -->
+    <script>
+        particlesJS.load('hello', 'particles.json', function() {
+            console.log('hello@rosannalui.com');
+        });
+    </script>
+
+    <div class="selected colortext">Selected Work</div>
+
+    <!-- Work -->
+    <div id="work" style="margin-top: 40px;">
+        <div class="columns" id="work">
+        <div class="work work1">
+            <a href="./bee/">
+                <h2>Bee Adventurous</h2>
+                <h3>Augmented Reality Game</h3>
+            </a>
+        </div>
+        <div class="work" style="background-image: url(images/brooks.jpg)">
+            <a href="./brooks">
+                <h2>Brooks</h2>
+                <h3>Researching Running Enthusiasts</h3>
+            </a>
+        </div>
+        </div>
+    </div>
+
+
+<div class="columns" id="work">
+        <div class="work work2">
+            <a href="./husky">
+                <h2>Husky Checkout</h2>
+                <h3>Equipment Rental Application</h3>
+            </a>
+        </div>
+
+
+        <div class="work work33" style="background-image: url(images/enve.jpg)">
+            <a href="./enve">
+                <h2>Enve</h2>
+                <h3>Apartment Website Design</h3>
+            </a>
+        </div>
+        <!--
+         <div class="work work3">
+            <a href="./chord">
+                <h2>Chordinate</h2>
+                <h3>Musician Networking App</h3>
+            </a>
+        </div>
+        -->
+        
+    </div>
+
+
+<!--
+    <div class="columns" id="work">
+        <div class="work" style="background-image: url(images/enve.jpg)">
+            <a href="./enve">
+                <h2>Enve</h2>
+                <h3>Apartment Website Design</h3>
+            </a>
+        </div>
+        
+        <div class="work work4">
+            <a href="./design">
+                <h2>Design Work</h2>
+                <h3>Illustration and Design</h3>
+            </a>
+        </div>
+        
+    </div>
+-->
+    
+
+    <!-- Contact -->
+    <div id="about" class="contact wrapper">
+
+            <div id="aboutrosanna" class="floatleft" style="text-align: center; padding-top: 100px;"><img src="images/rosanna.png"/></div>
+
+            <div class="floatleft" style="padding-top: 100px;">
+                <div style="padding: 0 40px 0 40px">
+                <h3 style="margin-top: 40px;">HELLO</h3>
+                <p>
+                    I am a recent Interactive Media Design graduate at the University of Washington. Inspired by my background as a daughter of immigrants, I believe that it is important to create and content that is accessible to everyone.
+                </p>
+                <p>
+                    I am always looking for new projects and opportunities to collaborate with others.
+                </p>
+                <p>
+                    My email is <a href="mailto:hello@rosannalui.com">hello@rosannalui.com</a>, send me a message!
+                </p>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+    </div>
+
+    <div id="footer" class="lightgray">
+        <div>
+            <div class="content">
+                <h3>Let's keep in touch and talk about the internet.</h3>
+                <p class="colortext"><a target="_blank" href="https://www.linkedin.com/in/rosannalui/">LinkedIn</a> &nbsp; / &nbsp; <a target="_blank" href="https://dribbble.com/rosannalui">Dribble</a></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
